@@ -14,6 +14,8 @@ namespace my_fluent_api.Validation
     {
         public ValidationResult AfterMvcValidation(ControllerContext controllerContext, ValidationContext validationContext, ValidationResult result)
         {
+            var valCtx = validationContext;
+
             foreach (var error in result.Errors)
             {
                 ErrorCode ecode;

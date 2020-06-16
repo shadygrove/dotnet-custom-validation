@@ -10,7 +10,7 @@ namespace my_fluent_api
     {
         public WeatherForecastValidator()
         {
-            RuleFor(weather => weather.Summary).NotNull().NotEmpty();
+            RuleFor(weather => weather.Summary).NotNull().NotEmpty().WithState(p => "MYCODE");
         }
     }
 }

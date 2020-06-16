@@ -30,7 +30,7 @@ namespace my_fluent_api
             services.AddControllers()
                 .AddFluentValidation(fv => {
                     fv.RegisterValidatorsFromAssemblyContaining<Startup>();
-                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                    //fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                 });
 
             // Register a default interceptor, where MyDefaultInterceptor is a class that
