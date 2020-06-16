@@ -35,5 +35,13 @@ namespace my_api.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public IActionResult Add([FromBody] WeatherForecast forecast)
+        {
+            bool valid = ModelState.IsValid;
+
+            return Ok();
+        }
     }
 }
