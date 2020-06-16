@@ -13,9 +13,16 @@ namespace my_api.Validation.Models
             return new MyValidationResult(type, new string[] { memberName });
         }
 
+        public static MyValidationResult Create(MyValidationTypes type, string memberName, string message)
+        {
+            return new MyValidationResult(type, new string[] { memberName });
+        }
+
         public static MyValidationResult Create(MyValidationTypes type, IEnumerable<string> memberNames)
         {
             return new MyValidationResult(type, memberNames);
         }
+
+
     }
 }

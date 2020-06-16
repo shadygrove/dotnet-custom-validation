@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using my_api.Validation;
+using my_api.Validation.ActionFilters;
 
 namespace my_api
 {
@@ -25,7 +28,20 @@ namespace my_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                // Suppress the default model state validation so we can implement our own
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(typeof(MyValidationActionFilter));
+            });
+
+            // Disable default validator by overriding with an empty implementation
+            // see docs here: https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-3.1#disable-validation
+            services.AddSingleton<IObjectModelValidator, NullObjectModelValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,13 +10,33 @@ namespace my_api.Validation.Models
     {
         public MyValidationTypes ValidationType { get; private set; }
 
-        public MyValidationResult(MyValidationTypes type) : base(type.ToString()) { }
-
-        public MyValidationResult(MyValidationTypes type, ValidationResult validationResult) : base(validationResult) {
+        public MyValidationResult(MyValidationTypes type) : base(type.ToString()) {
             this.ValidationType = type;
         }
 
-        public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames) : base(type.ToString(), memberNames) { 
+        //public MyValidationResult(MyValidationTypes type, string message) : base(type.ToString())
+        //{
+        //    this.ValidationType = type;
+        //    this.ErrorMessage = this.FormatMessage(type, message);
+        //}
+
+        //public MyValidationResult(MyValidationTypes type, ValidationResult validationResult) : base(validationResult) {
+        //    this.ValidationType = type;
+        //}
+
+        public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames) : base(type.ToString(), memberNames) {
+            this.ValidationType = type;
+        }
+
+        //public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames, string message) : base(type.ToString(), memberNames)
+        //{
+        //    this.ValidationType = type;
+        //    this.ErrorMessage = this.FormatMessage(type, message);
+        //}
+
+        private string FormatMessage (MyValidationTypes type, string message)
+        {
+            return type.ToString() + ": " + message;
         }
     }
 }

@@ -20,6 +20,8 @@ namespace my_api
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
+            MyValidationResult result = null;
+
             if (TemperatureC < -20 || TemperatureC > 100)
             {
                 yield return MyValidationResultFactory.Create(MyValidationTypes.OUT_OF_RANGE, nameof(TemperatureC));
@@ -38,7 +40,6 @@ namespace my_api
 
                 yield return MyValidationResultFactory.Create(MyValidationTypes.MUST_MATCH, fields);
             }
-
         }
     }
 }
