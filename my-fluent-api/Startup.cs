@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using FluentValidation.AspNetCore;
+using my_fluent_api.Validation;
 
 namespace my_fluent_api
 {
@@ -31,6 +32,15 @@ namespace my_fluent_api
                     fv.RegisterValidatorsFromAssemblyContaining<Startup>();
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                 });
+
+            // Register a default interceptor, where MyDefaultInterceptor is a class that
+            // implements IValidatorInterceptor.
+            services.AddTransient<IValidatorInterceptor, MyValidationInterceptor>();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = InvalidModelResponseFactory.ProduceResonse;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
