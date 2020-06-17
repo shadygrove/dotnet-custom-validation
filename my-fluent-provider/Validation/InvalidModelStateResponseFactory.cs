@@ -12,45 +12,31 @@ namespace my_fluent_provider.Validation
         public static IActionResult ProduceResonse(ActionContext actionContext)
         {
 
-            //var errorsInModelState = actionContext.ModelState.GetExtendedErrors<ErrorCode>();
-
-            var errorsInModelState = actionContext.ModelState.Where(
-                    x => x.Value.Errors.Count > 0)
-                    .ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Errors.Select(
-                        x => {
-
-                            if (x.Exception != null && x.Exception is MyValidationException)
-                            {
-                                var extendedException = (MyValidationException)x.Exception;
-
-                                return new ExtendedError
-                                {
-                                    ErrorMessage = x.ErrorMessage,
-                                    ErrorCode = extendedException.ErrorCode
-                                };
-                            }
-
-                            return new ExtendedError
-                            {
-                                ErrorMessage = x.ErrorMessage,
-                            };
-                        })).ToArray();
+            var errorsInModelState = actionContext.ModelState
+                .Where(x => x.Value.Errors.Count > 0)
+                .ToDictionary(
+                    kvp => kvp.Key,
+                    kvp => kvp.Value.Errors.Select(x => new { x.ErrorMessage, x.Exception }))
+                .ToArray();
 
 
-            //Our custom error ErrorResponse model
             var errorResponse = new ErrorResponse();
 
-            foreach (var keyValuePair in errorsInModelState)
+            foreach (var error in errorsInModelState)
             {
-
-                foreach (ExtendedError modelError in keyValuePair.Value)
+                foreach (var subError in error.Value)
                 {
-                    //Our custom error Error model
-                    var errorModel = new ErrorModel();
 
-                    errorModel.Message = modelError.ErrorMessage;
-                    errorModel.FieldName = keyValuePair.Key;
-                    errorModel.ErrorCode = modelError.ErrorCode;
+                    var errorModel = new ErrorModel();
+                    errorModel.Message = subError.ErrorMessage;
+                    errorModel.FieldName = error.Key;
+
+                     if (subError.Exception is MyValidationException)
+                    {
+                        var exception = (MyValidationException)subError.Exception;
+                        errorModel.ErrorCode = exception.ErrorCode;
+                        errorModel.Message = exception.Message;
+                    }
 
                     errorResponse.Errors.Add(errorModel);
                 }

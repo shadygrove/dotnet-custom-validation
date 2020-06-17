@@ -18,9 +18,10 @@ namespace my_fluent_api.Validation
 
             foreach (var error in result.Errors)
             {
-                ErrorCode ecode;
-                Enum.TryParse<ErrorCode>(error.ErrorCode, out ecode);
-                controllerContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, ecode));
+                ErrorCode errorCode = ErrorCode.NotDefined;
+                Enum.TryParse<ErrorCode>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
+
+                controllerContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));
             }
 
             return new ValidationResult();

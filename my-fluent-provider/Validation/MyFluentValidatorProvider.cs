@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,29 +15,19 @@ namespace my_fluent_provider.Validation
 
         public void CreateValidators(ModelValidatorProviderContext context)
         {
-            if (context.ModelMetadata.ContainerType == null)
+            if (context.ModelMetadata.MetadataKind == ModelMetadataKind.Parameter)
             {
-                return;
-            }
+                Type validatorType;
 
-            Type validatorType;
-            
-            if (validatorDictionary.TryGetValue(context.ModelMetadata.ContainerType, out validatorType))
-            {
-                context.Results.Add(new ValidatorItem
+                if (validatorDictionary.TryGetValue(context.ModelMetadata.ModelType, out validatorType))
                 {
-                    Validator = new FluentValidation((global::FluentValidation.IValidator)Activator.CreateInstance(validatorType)),
-                    IsReusable = true
-                });
+                    context.Results.Add(new ValidatorItem
+                    {
+                        Validator = new FluentValidation((global::FluentValidation.IValidator)Activator.CreateInstance(validatorType)),
+                        IsReusable = true
+                    });
+                }
             }
-            //if (context.ModelMetadata.ContainerType == typeof(User))
-            //{
-            //    context.Results.Add(new ValidatorItem
-            //    {
-            //        Validator = new UserModelValidator(),
-            //        IsReusable = true
-            //    });
-            //}
         }
     }
 

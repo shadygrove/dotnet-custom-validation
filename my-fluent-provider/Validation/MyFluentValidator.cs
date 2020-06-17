@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using my_fluent_provider.Validation.ResonseModels;
+using System;
 using System.Collections.Generic;
 
 namespace my_fluent_provider.Validation
@@ -17,12 +19,14 @@ namespace my_fluent_provider.Validation
         {
             List<ModelValidationResult> modelValidationResults = new List<ModelValidationResult>();
 
-            ValidationResult fluentResult = _abstractValidator.Validate(context.Container);
+            ValidationResult fluentResult = _abstractValidator.Validate(context.Model);
 
             foreach (var error in fluentResult.Errors)
             {
-                modelValidationResults.Add(
-                new ModelValidationResult(error.PropertyName, error.ErrorMessage));
+                ErrorCode errorCode = ErrorCode.NotDefined;
+                Enum.TryParse<ErrorCode>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
+
+                context.ActionContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));
             }
 
             return modelValidationResults;
