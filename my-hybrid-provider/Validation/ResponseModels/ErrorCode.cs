@@ -108,6 +108,10 @@ namespace my_hybrid_provider.Validation.ResponseModels
         /// <summary>
         /// validation against EnumValidator failed 
         /// </summary>
-        EnumError
+        EnumError,
+        /// <summary>
+        /// validation against RangeValidator failed 
+        /// </summary>
+        RangeError
     }
 }

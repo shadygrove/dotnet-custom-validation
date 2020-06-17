@@ -11,7 +11,8 @@ namespace my_hybrid_provider
         public WeatherForecastValidator()
         {
             RuleFor(expression: x => x.Summary)
-                    .NotEmpty();
+                    //.NotEmpty()
+                    .Equal("Butter");
         }
     }
 }

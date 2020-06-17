@@ -14,6 +14,8 @@ namespace my_hybrid_provider.Validation
 
         public void CreateValidators(ModelValidatorProviderContext context)
         {
+            var validatorItems = context.Results;
+
             if (context.ModelMetadata.MetadataKind == ModelMetadataKind.Parameter)
             {
                 Type fluentValidatorType;
@@ -26,16 +28,25 @@ namespace my_hybrid_provider.Validation
                         Validator = new MyFluentModelValidator((global::FluentValidation.IValidator)Activator.CreateInstance(fluentValidatorType)),
                         IsReusable = true
                     });
-                }
-                else
-                {
+                } 
+                //else
+                //{
                     context.Results.Add(new ValidatorItem
                     {
                         Validator = new MvcModelValidator(),
                         IsReusable = true
                     });
-                }
+                //}
             }
+
+            //if (context.ModelMetadata.MetadataKind == ModelMetadataKind.Property)
+            //{
+            //    context.Results.Add(new ValidatorItem
+            //    {
+            //        Validator = new MvcModelValidator(),
+            //        IsReusable = true
+            //    });
+            //}
         }
     }
 
