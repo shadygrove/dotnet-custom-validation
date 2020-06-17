@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "my-fluent-provider", "my-fluent-provider\my-fluent-provider.csproj", "{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,18 @@ Global
 		{64A7B6D3-DDF1-4CC8-BB5A-4B0B0880D77B}.Release|x64.Build.0 = Release|Any CPU
 		{64A7B6D3-DDF1-4CC8-BB5A-4B0B0880D77B}.Release|x86.ActiveCfg = Release|Any CPU
 		{64A7B6D3-DDF1-4CC8-BB5A-4B0B0880D77B}.Release|x86.Build.0 = Release|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Debug|x64.Build.0 = Debug|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Debug|x86.Build.0 = Debug|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Release|x64.ActiveCfg = Release|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Release|x64.Build.0 = Release|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
