@@ -13,9 +13,13 @@ namespace my_api.Validation.ResponseModels
 
         public string Message { get; private set; }
 
+        public string FieldName { get; private set; }
+
+
         public MyValidationResponseModel(MyValidationTypes type, string memberName) {
             this.Type = type;
             this.Message = GetValidationMessage(type);
+            this.FieldName = memberName;
         }
 
         private string GetValidationMessage (MyValidationTypes type)
