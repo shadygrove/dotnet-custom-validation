@@ -13,6 +13,11 @@ namespace my_fluent_provider
             RuleFor(expression: x => x.Summary)
                     .NotEmpty();
 
+            RuleFor(expression: x => x.TemperatureC)
+                    .GreaterThan(-20)
+                    .LessThan(100)
+                    .NotEmpty();
+
             //RuleFor(expression: x => x.Address).SetValidator(new AddressValidator());
         }
     }
