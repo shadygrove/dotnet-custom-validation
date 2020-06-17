@@ -1,10 +1,12 @@
+using my_hybrid_provider.Validation;
 using my_hybrid_provider.Validation.Annotations;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace my_hybrid_provider
 {
-    public class WeatherForecast
+    public class WeatherForecast : IValidatableObject
     {
         public DateTime Date { get; set; }
 
@@ -17,5 +19,17 @@ namespace my_hybrid_provider
         [Required]           // Built-in AspNetCore Required
         [MaxLength(8)]       // Built-in AspNetCore MaxLength
         public string Summary { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // NOTE: All annotation validations MUST PASS
+            // before this method will get called!!!
+            if (TemperatureC > 100)
+            {
+                var result = new MyValidationResult("IValidatableObject: value should be greater than 100", new string[] { nameof(TemperatureC) });
+                result.ErrorCode = Validation.ResponseModels.ErrorCode.RangeError;
+                yield return result;
+            }
+        }
     }
 }
