@@ -1,4 +1,4 @@
-﻿using my_fluent_provider.Validation.ResonseModels;
+﻿using MyValidation.Core.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

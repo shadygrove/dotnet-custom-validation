@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using my_fluent_provider.Validation.ResonseModels;
+using MyValidation.Core.ResponseModels;
 using System;
 using System.Collections.Generic;
 
