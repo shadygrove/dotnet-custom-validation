@@ -1,4 +1,4 @@
-﻿using MyValidation.Core.ResponseModels;
+﻿using MyValidation.Core.V1.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

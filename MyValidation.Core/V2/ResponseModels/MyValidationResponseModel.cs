@@ -8,6 +8,8 @@ namespace MyValidation.Core.V2.ResponseModels
     {
         public MyValidationTypes Type { get; private set; }
 
+        public MyFluentCodes FluentType { get; private set; }
+
         public string Message { get; private set; }
 
         public string FieldName { get; private set; }

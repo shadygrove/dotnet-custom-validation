@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyValidation.Core.ResponseModels;
+using MyValidation.Core.V1.ResponseModels;
 using System.Linq;
 
 namespace my_fluent_api.Validation

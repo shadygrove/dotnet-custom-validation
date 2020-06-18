@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MyValidation.Core.ResponseModels
+namespace MyValidation.Core.V1.ResponseModels
 {
 
     /// <summary>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyValidation.Core.ResponseModels
+namespace MyValidation.Core.V1.ResponseModels
 {
     public class ErrorResponse
     {
