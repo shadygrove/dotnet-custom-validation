@@ -15,13 +15,27 @@ namespace MyValidation.Core.V2.ValidationResults
         public MyValidationResult(MyValidationTypes type) : base(type.ToString())
         {
             this.ValidationType = type;
-            this.ErrorMessage = FormatMessage(this.ValidationType);
+            this.ErrorMessage = FormatMessage(this.ValidationType, String.Empty);
         }
 
         public MyValidationResult(MyFluentCodes type) : base(type.ToString())
         {
+            this.ValidationType = MyValidationTypes.FLUENT_VALIDATION;
             this.FluentType = type;
-            this.ErrorMessage = FormatMessage(this.FluentType);
+            this.ErrorMessage = FormatMessage(this.FluentType, String.Empty);
+        }
+
+        public MyValidationResult(MyValidationTypes type, ValidationResult baseResult) : base(baseResult)
+        {
+            this.ValidationType = type;
+            this.ErrorMessage = FormatMessage(this.FluentType, baseResult.ErrorMessage);
+        }
+
+        public MyValidationResult(MyFluentCodes type, ValidationResult baseResult) : base(baseResult)
+        {
+            this.ValidationType = MyValidationTypes.FLUENT_VALIDATION;
+            this.FluentType = type;
+            this.ErrorMessage = FormatMessage(this.FluentType, baseResult.ErrorMessage);
         }
 
         //public MyValidationResult(MyValidationTypes type, string message) : base(type.ToString())
@@ -37,13 +51,7 @@ namespace MyValidation.Core.V2.ValidationResults
         public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames) : base(type.ToString(), memberNames)
         {
             this.ValidationType = type;
-            this.ErrorMessage = FormatMessage(this.ValidationType);
-        }
-
-        public MyValidationResult(MyFluentCodes type, IEnumerable<string> memberNames) : base(type.ToString(), memberNames)
-        {
-            this.FluentType = type;
-            this.ErrorMessage = FormatMessage(this.FluentType);
+            this.ErrorMessage = FormatMessage(this.ValidationType, String.Empty);
         }
 
         //public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames, string message) : base(type.ToString(), memberNames)
@@ -52,14 +60,14 @@ namespace MyValidation.Core.V2.ValidationResults
         //    this.ErrorMessage = this.FormatMessage(type, message);
         //}
 
-        private string FormatMessage(MyValidationTypes type)
+        private string FormatMessage(MyValidationTypes type, string message)
         {
-            return "MyValidationResult V2: " + type.ToString();
+            return "MyValidationResult V2: " + type.ToString() + message;
         }
 
-        private string FormatMessage(MyFluentCodes type)
+        private string FormatMessage(MyFluentCodes type, string message)
         {
-            return "MyValidationResult V2: " + type.ToString();
+            return "MyValidationResult V2: " + type.ToString() + message;
         }
     }
 }

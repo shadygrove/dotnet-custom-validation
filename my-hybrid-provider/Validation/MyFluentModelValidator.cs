@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using MyValidation.Core.V1;
-using MyValidation.Core.V1.ResponseModels;
+using MyValidation.Core.V2;
+using MyValidation.Core.V2.Common;
 using System;
 using System.Collections.Generic;
 
@@ -24,7 +24,7 @@ namespace my_hybrid_provider.Validation
 
             foreach (var error in fluentResult.Errors)
             {
-                ErrorCode errorCode = ErrorCode.NotDefined;
+                MyFluentCodes errorCode = MyFluentCodes.NotDefined;
                 Enum.TryParse(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
 
                 context.ActionContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));

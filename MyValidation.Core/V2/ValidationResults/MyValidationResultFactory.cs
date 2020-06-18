@@ -1,6 +1,7 @@
 ﻿using MyValidation.Core.V2.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MyValidation.Core.V2.ValidationResults
@@ -22,6 +23,16 @@ namespace MyValidation.Core.V2.ValidationResults
             return new MyValidationResult(type, memberNames);
         }
 
+        public static MyValidationResult Create(MyValidationTypes type, ValidationResult baseResult)
+        {
+            return new MyValidationResult(type, baseResult);
+        }
+
+        public static MyValidationResult Create(MyFluentCodes type, ValidationResult baseResult)
+        {
+            return new MyValidationResult(type, baseResult);
+        }
+        
 
     }
 }

@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using MyValidation.Core.V1;
-using MyValidation.Core.V1.ValidationResults;
-using System;
+using MyValidation.Core.V2;
+using MyValidation.Core.V2.ValidationResults;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_hybrid_provider.Validation
 {
@@ -28,7 +25,7 @@ namespace my_hybrid_provider.Validation
                     MyValidationResult myValidationResult = (MyValidationResult)result;
                     foreach (var membername in result.MemberNames)
                     {
-                        context.ActionContext.ModelState.TryAddModelException(membername, new MyValidationException(result.ErrorMessage, myValidationResult.ErrorCode));
+                        context.ActionContext.ModelState.TryAddModelException(membername, new MyValidationException(result.ErrorMessage, myValidationResult.ValidationType));
                     }
                 }
                 else

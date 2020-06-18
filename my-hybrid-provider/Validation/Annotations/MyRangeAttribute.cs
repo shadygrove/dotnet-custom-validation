@@ -1,5 +1,6 @@
-﻿using MyValidation.Core.V1.ResponseModels;
-using MyValidation.Core.V1.ValidationResults;
+﻿
+using MyValidation.Core.V2.Common;
+using MyValidation.Core.V2.ValidationResults;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,8 +24,7 @@ namespace my_hybrid_provider.Validation.Annotations
                 return baseValidation;
             }
 
-            MyValidationResult result = new MyValidationResult(baseValidation);
-            result.ErrorCode = ErrorCode.RangeError;
+            MyValidationResult result = MyValidationResultFactory.Create(MyValidationTypes.OUT_OF_RANGE, baseValidation);
 
             return result;
         }

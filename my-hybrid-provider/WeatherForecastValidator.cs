@@ -13,7 +13,7 @@ namespace my_hybrid_provider
             RuleFor(expression: x => x.Summary)
                     //.NotEmpty()
                     .Equal("Butter")
-                    .WithErrorCode("FluentMustBeButter")
+                    //.WithErrorCode("FluentMustBeButter")
                     .WithMessage("Fluent: Summary should be Butter always");
         }
     }

@@ -5,6 +5,7 @@ namespace MyValidation.Core.V2.Common
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum MyValidationTypes
     {
+        FLUENT_VALIDATION,
         REQUIRED,
         MIN,
         MAX,
