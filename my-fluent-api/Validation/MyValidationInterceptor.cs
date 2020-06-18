@@ -2,6 +2,7 @@
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using MyValidation.Core.V1;
 using MyValidation.Core.V1.ResponseModels;
 using System;
 
