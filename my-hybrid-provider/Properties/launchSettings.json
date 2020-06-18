@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "my_fluent_provider": {
+    "my_hybrid_provider": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

@@ -29,6 +29,8 @@ namespace my_hybrid_provider
         {
             services.AddControllers(options =>
             {
+                // Remove the DefaultModelValidatorProvider
+                // and the DataAnnotationModelValidatorProvider by clearing the list
                 options.ModelValidatorProviders.Clear();
                 options.ModelValidatorProviders.Add(new MyHybridValidatorProvider());
             });
@@ -37,6 +39,7 @@ namespace my_hybrid_provider
             {
                 options.InvalidModelStateResponseFactory = InvalidModelStateResponseFactory.ProduceResonse;
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

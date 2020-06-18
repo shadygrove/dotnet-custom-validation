@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace my_fluent_provider.Validation
 {
-    public class FluentValidation : IModelValidator
+    public class MyFluentValidator : IModelValidator
     {
         IValidator _abstractValidator;
-        public FluentValidation(IValidator abstractValidator)
+        public MyFluentValidator(IValidator abstractValidator)
         {
             _abstractValidator = abstractValidator;
         }

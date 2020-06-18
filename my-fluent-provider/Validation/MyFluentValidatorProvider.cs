@@ -23,7 +23,7 @@ namespace my_fluent_provider.Validation
                 {
                     context.Results.Add(new ValidatorItem
                     {
-                        Validator = new FluentValidation((global::FluentValidation.IValidator)Activator.CreateInstance(validatorType)),
+                        Validator = new MyFluentValidator((global::FluentValidation.IValidator)Activator.CreateInstance(validatorType)),
                         IsReusable = true
                     });
                 }
