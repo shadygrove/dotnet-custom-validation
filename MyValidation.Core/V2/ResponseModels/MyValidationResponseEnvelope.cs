@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace my_api.Validation.ResponseModels
+namespace MyValidation.Core.V2.ResponseModels
 {
     public class MyValidationResponseEnvelope
     {

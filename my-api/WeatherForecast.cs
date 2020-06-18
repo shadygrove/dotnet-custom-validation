@@ -1,4 +1,5 @@
 using my_api.Validation.Models;
+using MyValidation.Core.V2.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

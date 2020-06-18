@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using my_api.Validation.Models;
+﻿
+using MyValidation.Core.V2.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace my_api.Validation.ResponseModels
+namespace MyValidation.Core.V2.ResponseModels
 {
     public class MyValidationResponseModel /*: ModelValidationResult*/
     {
