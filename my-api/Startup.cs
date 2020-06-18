@@ -36,7 +36,7 @@ namespace my_api
 
             services.AddControllers(options =>
             {
-                options.Filters.Add(typeof(MyValidationActionFilter));
+                options.Filters.Add<MyValidationActionFilter>();
             });
 
             // Disable default validator by overriding with an empty implementation

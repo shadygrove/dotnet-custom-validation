@@ -1,7 +1,9 @@
 ﻿using MyValidation.Core.V2.Common;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace my_api.Validation.Models
+namespace MyValidation.Core.V2.ValidationResults
 {
     public class MyValidationResultFactory
     {

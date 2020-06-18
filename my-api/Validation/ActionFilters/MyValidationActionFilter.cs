@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using my_api.Validation.Models;
 using MyValidation.Core.V2.ResponseModels;
+using MyValidation.Core.V2.ValidationResults;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

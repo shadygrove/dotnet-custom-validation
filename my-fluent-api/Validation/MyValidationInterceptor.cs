@@ -14,6 +14,7 @@ namespace my_fluent_api.Validation
         {
             var valCtx = validationContext;
 
+            // Note that ValidationResult is a FluentValidation.Results.ValidationResult in this context (not System.Net.DataAnnotations)
             foreach (var error in result.Errors)
             {
                 ErrorCode errorCode = ErrorCode.NotDefined;
