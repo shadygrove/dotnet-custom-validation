@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using FluentValidation.AspNetCore;
 using my_fluent_api.Validation;
-using MyValidation.Core.V1;
+using MyValidation.Core.V2;
 
 namespace my_fluent_api
 {

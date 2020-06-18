@@ -2,8 +2,9 @@
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using MyValidation.Core.V1;
-using MyValidation.Core.V1.ResponseModels;
+using MyValidation.Core.V2;
+using MyValidation.Core.V2.Common;
+using MyValidation.Core.V2.ResponseModels;
 using System;
 
 namespace my_fluent_api.Validation
@@ -17,8 +18,8 @@ namespace my_fluent_api.Validation
             // Note that ValidationResult is a FluentValidation.Results.ValidationResult in this context (not System.Net.DataAnnotations)
             foreach (var error in result.Errors)
             {
-                ErrorCode errorCode = ErrorCode.NotDefined;
-                Enum.TryParse<ErrorCode>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
+                MyFluentCodes errorCode = MyFluentCodes.NotDefined;
+                Enum.TryParse<MyFluentCodes>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
 
                 controllerContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));
             }

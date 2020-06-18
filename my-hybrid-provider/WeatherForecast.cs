@@ -1,12 +1,10 @@
-using my_hybrid_provider.Validation;
 using my_hybrid_provider.Validation.Annotations;
-using MyValidation.Core.V1.ResponseModels;
-using MyValidation.Core.V1.ValidationResults;
 using MyValidation.Core.V2.Common;
 using MyValidation.Core.V2.ValidationResults;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace my_hybrid_provider
 {
@@ -34,6 +32,7 @@ namespace my_hybrid_provider
                 //result.ErrorCode = ErrorCode.RangeError;
 
                 var result = MyValidationResultFactory.Create(MyValidationTypes.OUT_OF_RANGE, nameof(TemperatureC));
+                result.ErrorMessage = "IValidatableObject: " + result.ErrorMessage;
 
                 yield return result;
             }
