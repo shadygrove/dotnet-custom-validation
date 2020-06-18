@@ -28,6 +28,7 @@ namespace my_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Comment out ALL these lines to use Default MVC Validators
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 // Suppress the default model state validation so we can implement our own
