@@ -1,9 +1,5 @@
-﻿using my_fluent_api.Validation.Models;
-using System;
-using System.Collections.Generic;
+﻿using MyValidation.Core.ResponseModels;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_fluent_api.Validation
 {
@@ -13,7 +9,7 @@ namespace my_fluent_api.Validation
 
         public MyValidationException(string message, ErrorCode errorCode) : base(message)
         {
-            ErrorCode = errorCode; 
+            ErrorCode = errorCode;
         }
     }
 }
