@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using my_hybrid_provider.Validation.ResponseModels;
+using MyValidation.Core.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

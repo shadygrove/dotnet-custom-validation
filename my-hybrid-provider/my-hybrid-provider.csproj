@@ -6,11 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Validation\ResponseModels\**" />
+    <Content Remove="Validation\ResponseModels\**" />
+    <EmbeddedResource Remove="Validation\ResponseModels\**" />
+    <None Remove="Validation\ResponseModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="AspNetCore\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyValidation.Core\MyValidation.Core.csproj" />
   </ItemGroup>
 
 

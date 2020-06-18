@@ -1,5 +1,6 @@
 using my_hybrid_provider.Validation;
 using my_hybrid_provider.Validation.Annotations;
+using MyValidation.Core.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -27,7 +28,7 @@ namespace my_hybrid_provider
             if (TemperatureC > 100)
             {
                 var result = new MyValidationResult("IValidatableObject: value should be greater than 100", new string[] { nameof(TemperatureC) });
-                result.ErrorCode = Validation.ResponseModels.ErrorCode.RangeError;
+                result.ErrorCode = ErrorCode.RangeError;
                 yield return result;
             }
         }

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using my_hybrid_provider.Validation.ResponseModels;
+using MyValidation.Core.ResponseModels;
 using System;
 using System.Collections.Generic;
 

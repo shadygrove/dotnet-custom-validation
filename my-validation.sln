@@ -16,6 +16,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-fluent-provider", "my-fl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-hybrid-provider", "my-hybrid-provider\my-hybrid-provider.csproj", "{07E0C11C-087D-487E-8E99-685405FA645E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyValidation.Core", "MyValidation.Core\MyValidation.Core.csproj", "{470D8669-A390-4413-A892-A1C8FB86D469}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,18 @@ Global
 		{07E0C11C-087D-487E-8E99-685405FA645E}.Release|x64.Build.0 = Release|Any CPU
 		{07E0C11C-087D-487E-8E99-685405FA645E}.Release|x86.ActiveCfg = Release|Any CPU
 		{07E0C11C-087D-487E-8E99-685405FA645E}.Release|x86.Build.0 = Release|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Debug|x64.Build.0 = Debug|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Debug|x86.Build.0 = Debug|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Release|x64.ActiveCfg = Release|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Release|x64.Build.0 = Release|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Release|x86.ActiveCfg = Release|Any CPU
+		{470D8669-A390-4413-A892-A1C8FB86D469}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿using my_hybrid_provider.Validation.ResponseModels;
+﻿using MyValidation.Core.ResponseModels;
 using System.ComponentModel.DataAnnotations;
 
 namespace my_hybrid_provider.Validation.Annotations

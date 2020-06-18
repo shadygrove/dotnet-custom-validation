@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace my_hybrid_provider.Validation.ResponseModels
+namespace MyValidation.Core.ResponseModels
 {
     public class ErrorResponse
     {
