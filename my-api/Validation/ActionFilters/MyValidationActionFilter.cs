@@ -45,6 +45,7 @@ namespace my_api.Validation.ActionFilters
                     }
                 }
 
+                // This basically short-circuits the pipeline and prevents the default model validation response
                 context.Result = new BadRequestObjectResult(envelope);
             }
         }
