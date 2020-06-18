@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using my_fluent_provider.Validation;
+using MyValidation.Core.V1;
 
 namespace my_fluent_provider
 {

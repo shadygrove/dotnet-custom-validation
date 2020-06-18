@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyValidation.Core.V1;
-using MyValidation.Core.V1.ResponseModels;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Linq;
+using MyValidation.Core.V1.ResponseModels;
 
-namespace my_fluent_provider.Validation
+namespace MyValidation.Core.V1
 {
     public static class InvalidModelStateResponseFactory
     {
@@ -29,7 +31,7 @@ namespace my_fluent_provider.Validation
                     errorModel.Message = subError.ErrorMessage;
                     errorModel.FieldName = error.Key;
 
-                     if (subError.Exception is MyValidationException)
+                    if (subError.Exception is MyValidationException)
                     {
                         var exception = (MyValidationException)subError.Exception;
                         errorModel.ErrorCode = exception.ErrorCode;

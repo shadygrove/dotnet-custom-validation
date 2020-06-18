@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using FluentValidation.AspNetCore;
 using my_fluent_api.Validation;
+using MyValidation.Core.V1;
 
 namespace my_fluent_api
 {
@@ -39,7 +40,7 @@ namespace my_fluent_api
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
-                options.InvalidModelStateResponseFactory = InvalidModelResponseFactory.ProduceResonse;
+                options.InvalidModelStateResponseFactory = InvalidModelStateResponseFactory.ProduceResonse;
             });
         }
 

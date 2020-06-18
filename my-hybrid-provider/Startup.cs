@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using my_hybrid_provider.Validation;
+using MyValidation.Core.V1;
 
 namespace my_hybrid_provider
 {
