@@ -24,7 +24,8 @@ namespace my_hybrid_provider.Validation.Annotations
                 return baseValidation;
             }
 
-            MyValidationResult result = MyValidationResultFactory.Create(MyValidationTypes.OUT_OF_RANGE, baseValidation);
+            
+            MyValidationResult result = MyValidationResultFactory.Create(MyValidatorType.OUT_OF_RANGE, baseValidation);
 
             return result;
         }

@@ -6,18 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AspNetCore\**" />
     <Compile Remove="Validation\ResponseModels\**" />
+    <Content Remove="AspNetCore\**" />
     <Content Remove="Validation\ResponseModels\**" />
+    <EmbeddedResource Remove="AspNetCore\**" />
     <EmbeddedResource Remove="Validation\ResponseModels\**" />
+    <None Remove="AspNetCore\**" />
     <None Remove="Validation\ResponseModels\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="AspNetCore\" />
   </ItemGroup>
 
   <ItemGroup>

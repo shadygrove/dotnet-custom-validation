@@ -8,19 +8,21 @@ namespace MyValidation.Core.V2
 {
     public class MyValidationException : ValidationException
     {
-        public MyFluentCodes FluentCode { get; set; }
+        public ValidatorType ValidationType { get; }
 
-        public MyValidationTypes ValidationType { get; set; }
-
-        public MyValidationException(string message, MyFluentCodes fluentCode) : base(message)
+        public MyValidationException(string message, ValidatorType validationType) : base(message)
         {
-            FluentCode = fluentCode;
-            ValidationType = MyValidationTypes.FLUENT_VALIDATION;
+            ValidationType = validationType;
         }
 
-        public MyValidationException(string message, MyValidationTypes type) : base(message)
+        public MyValidationException(string message, FluentValidatorType validationType) :
+            this(message, new ValidatorType(validationType))
         {
-            ValidationType = type;
+        }
+
+        public MyValidationException(string message, MyValidatorType validationType) :
+            this(message, new ValidatorType(validationType))
+        {
         }
     }
 }

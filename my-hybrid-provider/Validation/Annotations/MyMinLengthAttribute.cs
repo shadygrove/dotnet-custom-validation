@@ -21,7 +21,7 @@ namespace my_hybrid_provider.Validation.Annotations
                 return baseValidation;
             }
 
-            MyValidationResult result = MyValidationResultFactory.Create(MyFluentCodes.MinimumLengthError, baseValidation);
+            MyValidationResult result = MyValidationResultFactory.Create(MyValidatorType.MIN_LENGTH, baseValidation);
 
             return result;
         }
