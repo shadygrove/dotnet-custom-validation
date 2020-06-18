@@ -1,6 +1,7 @@
 using my_hybrid_provider.Validation;
 using my_hybrid_provider.Validation.Annotations;
 using MyValidation.Core.V1.ResponseModels;
+using MyValidation.Core.V1.ValidationResults;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,8 +18,8 @@ namespace my_hybrid_provider
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
         [MyMinLength(2)]
-        [Required]           // Built-in AspNetCore Required
-        [MaxLength(8)]       // Built-in AspNetCore MaxLength
+        [Required(ErrorMessage = "DotNetCore: Summary is required")]           // Built-in AspNetCore Required
+        [MaxLength(8, ErrorMessage = "DotNetCore: Summary max length exceeded")]       // Built-in AspNetCore MaxLength
         public string Summary { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

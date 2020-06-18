@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using MyValidation.Core.V1;
+using MyValidation.Core.V1.ValidationResults;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
