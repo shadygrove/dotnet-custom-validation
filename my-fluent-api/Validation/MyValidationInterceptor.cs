@@ -18,8 +18,8 @@ namespace my_fluent_api.Validation
             // Note that ValidationResult is a FluentValidation.Results.ValidationResult in this context (not System.Net.DataAnnotations)
             foreach (var error in result.Errors)
             {
-                MyFluentCodes errorCode = MyFluentCodes.NotDefined;
-                Enum.TryParse<MyFluentCodes>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
+                FluentValidatorType errorCode = FluentValidatorType.NotDefined;
+                Enum.TryParse<FluentValidatorType>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
 
                 controllerContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));
             }

@@ -31,7 +31,7 @@ namespace my_hybrid_provider
                 //var result = new MyValidationResult("IValidatableObject: value should be greater than 100", new string[] { nameof(TemperatureC) });
                 //result.ErrorCode = ErrorCode.RangeError;
 
-                var result = MyValidationResultFactory.Create(MyValidationTypes.OUT_OF_RANGE, nameof(TemperatureC));
+                var result = MyValidationResultFactory.Create(MyValidatorType.OUT_OF_RANGE, "The TemperatureC was out of range", nameof(TemperatureC));
                 result.ErrorMessage = "IValidatableObject: " + result.ErrorMessage;
 
                 yield return result;

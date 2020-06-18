@@ -24,7 +24,7 @@ namespace my_hybrid_provider.Validation
 
             foreach (var error in fluentResult.Errors)
             {
-                MyFluentCodes errorCode = MyFluentCodes.NotDefined;
+                FluentValidatorType errorCode = FluentValidatorType.NotDefined;
                 Enum.TryParse(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
 
                 context.ActionContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));

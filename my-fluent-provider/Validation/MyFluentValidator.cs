@@ -24,8 +24,8 @@ namespace my_fluent_provider.Validation
 
             foreach (var error in fluentResult.Errors)
             {
-                MyFluentCodes errorCode = MyFluentCodes.NotDefined;
-                Enum.TryParse<MyFluentCodes>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
+                FluentValidatorType errorCode = FluentValidatorType.NotDefined;
+                Enum.TryParse<FluentValidatorType>(error.ErrorCode.Replace("Validator", "Error"), out errorCode);
 
                 context.ActionContext.ModelState.TryAddModelException(error.PropertyName, new MyValidationException(error.ErrorMessage, errorCode));
             }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyValidation.Core.V2.Common;
 using MyValidation.Core.V2.ResponseModels;
 using System.Linq;
 
@@ -24,18 +25,14 @@ namespace MyValidation.Core.V2
                 foreach (var subError in error.Value)
                 {
 
-                    //var errorModel = new ValidationResponseModel();
-                    //errorModel.Message = subError.ErrorMessage;
-                    //errorModel.FieldName = error.Key;
-
                     ValidationResponseModel valResponse;
                     // if we have a custom validation exception use the rich data it provides
                     if (subError.Exception is MyValidationException ex)
                     {
-                        valResponse = new ValidationResponseModel(ex.ValidationType, ex.FluentCode, error.Key, ex.Message);
+                        valResponse = new ValidationResponseModel(ex.ValidationType, error.Key, ex.Message);
                     } else
                     {
-                        valResponse = new ValidationResponseModel(Common.MyValidationTypes.OTHER, error.Key, subError.ErrorMessage);
+                        valResponse = new ValidationResponseModel(ValidatorType.Unknown, error.Key, subError.ErrorMessage);
                     }
 
                     errorResponse.Errors.Add(valResponse);

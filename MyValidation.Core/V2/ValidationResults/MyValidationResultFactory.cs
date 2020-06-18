@@ -8,29 +8,24 @@ namespace MyValidation.Core.V2.ValidationResults
 {
     public class MyValidationResultFactory
     {
-        public static MyValidationResult Create(MyValidationTypes type, string memberName)
+        public static MyValidationResult Create(MyValidatorType type, string message, string memberName)
         {
-            return new MyValidationResult(type, new string[] { memberName });
+            return new MyValidationResult(new ValidatorType(type), message, new string[] { memberName });
         }
 
-        public static MyValidationResult Create(MyValidationTypes type, string memberName, string message)
+        public static MyValidationResult Create(MyValidatorType type, string message, IEnumerable<string> memberNames)
         {
-            return new MyValidationResult(type, new string[] { memberName });
+            return new MyValidationResult(new ValidatorType(type), message, memberNames);
         }
 
-        public static MyValidationResult Create(MyValidationTypes type, IEnumerable<string> memberNames)
+        public static MyValidationResult Create(MyValidatorType type, ValidationResult baseResult)
         {
-            return new MyValidationResult(type, memberNames);
+            return new MyValidationResult(new ValidatorType(type), baseResult);
         }
 
-        public static MyValidationResult Create(MyValidationTypes type, ValidationResult baseResult)
+        public static MyValidationResult Create(FluentValidatorType type, ValidationResult baseResult)
         {
-            return new MyValidationResult(type, baseResult);
-        }
-
-        public static MyValidationResult Create(MyFluentCodes type, ValidationResult baseResult)
-        {
-            return new MyValidationResult(type, baseResult);
+            return new MyValidationResult(new ValidatorType(type), baseResult);
         }
         
 

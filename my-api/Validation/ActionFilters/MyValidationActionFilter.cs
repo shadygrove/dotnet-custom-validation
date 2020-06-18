@@ -39,7 +39,7 @@ namespace my_api.Validation.ActionFilters
                 {
                     foreach (string memberName in valResult.MemberNames)
                     {
-                        var valModel = new ValidationResponseModel(valResult.ValidationType, valResult.FluentType, memberName, valResult.ErrorMessage);
+                        var valModel = new ValidationResponseModel(valResult.ValidationType, memberName, valResult.ErrorMessage);
 
                         envelope.Errors.Add(valModel);
                     }
