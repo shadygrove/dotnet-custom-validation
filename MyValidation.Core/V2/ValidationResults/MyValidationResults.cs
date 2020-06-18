@@ -10,9 +10,18 @@ namespace MyValidation.Core.V2.ValidationResults
     {
         public MyValidationTypes ValidationType { get; private set; }
 
+        public MyFluentCodes FluentType { get; private set; }
+
         public MyValidationResult(MyValidationTypes type) : base(type.ToString())
         {
             this.ValidationType = type;
+            this.ErrorMessage = FormatMessage(this.ValidationType);
+        }
+
+        public MyValidationResult(MyFluentCodes type) : base(type.ToString())
+        {
+            this.FluentType = type;
+            this.ErrorMessage = FormatMessage(this.FluentType);
         }
 
         //public MyValidationResult(MyValidationTypes type, string message) : base(type.ToString())
@@ -28,6 +37,13 @@ namespace MyValidation.Core.V2.ValidationResults
         public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames) : base(type.ToString(), memberNames)
         {
             this.ValidationType = type;
+            this.ErrorMessage = FormatMessage(this.ValidationType);
+        }
+
+        public MyValidationResult(MyFluentCodes type, IEnumerable<string> memberNames) : base(type.ToString(), memberNames)
+        {
+            this.FluentType = type;
+            this.ErrorMessage = FormatMessage(this.FluentType);
         }
 
         //public MyValidationResult(MyValidationTypes type, IEnumerable<string> memberNames, string message) : base(type.ToString(), memberNames)
@@ -36,9 +52,14 @@ namespace MyValidation.Core.V2.ValidationResults
         //    this.ErrorMessage = this.FormatMessage(type, message);
         //}
 
-        private string FormatMessage(MyValidationTypes type, string message)
+        private string FormatMessage(MyValidationTypes type)
         {
-            return type.ToString() + ": " + message;
+            return "MyValidationResult V2: " + type.ToString();
+        }
+
+        private string FormatMessage(MyFluentCodes type)
+        {
+            return "MyValidationResult V2: " + type.ToString();
         }
     }
 }
