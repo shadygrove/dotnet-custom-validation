@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-api", "my-api\my-api.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-fluent-api", "my-fluent-api\my-fluent-api.csproj", "{64A7B6D3-DDF1-4CC8-BB5A-4B0B0880D77B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{8C98C438-4637-4C04-B825-243876F94827}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_sln", "_sln", "{8C98C438-4637-4C04-B825-243876F94827}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
@@ -16,7 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-fluent-provider", "my-fl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-hybrid-provider", "my-hybrid-provider\my-hybrid-provider.csproj", "{07E0C11C-087D-487E-8E99-685405FA645E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyValidation.Core", "MyValidation.Core\MyValidation.Core.csproj", "{470D8669-A390-4413-A892-A1C8FB86D469}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyValidation.Core", "MyValidation.Core\MyValidation.Core.csproj", "{470D8669-A390-4413-A892-A1C8FB86D469}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fluent", "fluent", "{7F081BA4-B3C1-4AD8-98B0-402D19DE5FB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnetcore", "dotnetcore", "{A38A69B8-12F3-4950-B3E4-789CA4F8308D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fluent-and-dotnetcore", "fluent-and-dotnetcore", "{743F4D9C-D4C7-439D-9862-E1928DD89284}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +97,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56D94A8C-0EFC-4662-8420-DF43CD3FED5C} = {A38A69B8-12F3-4950-B3E4-789CA4F8308D}
+		{64A7B6D3-DDF1-4CC8-BB5A-4B0B0880D77B} = {7F081BA4-B3C1-4AD8-98B0-402D19DE5FB8}
+		{2FE7D885-1E4A-4C04-9AAB-E6BDDCB5C633} = {7F081BA4-B3C1-4AD8-98B0-402D19DE5FB8}
+		{07E0C11C-087D-487E-8E99-685405FA645E} = {743F4D9C-D4C7-439D-9862-E1928DD89284}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50D050A3-D9B2-461C-87C4-0613A6F63794}
