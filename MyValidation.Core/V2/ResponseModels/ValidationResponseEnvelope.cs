@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace MyValidation.Core.V2.ResponseModels
 {
-    public class MyValidationResponseEnvelope
+    public class ValidationResponseEnvelope
     {
         public string Message { get; set; }
 
         public HttpStatusCode Code { get; private set; }
 
-        public List<MyValidationResponseModel> Errors { get; set; } = new List<MyValidationResponseModel>();
+        public List<ValidationResponseModel> Errors { get; set; } = new List<ValidationResponseModel>();
 
-        public MyValidationResponseEnvelope()
+        public ValidationResponseEnvelope()
         {
             this.Code = HttpStatusCode.BadRequest;
         }

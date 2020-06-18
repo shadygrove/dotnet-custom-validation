@@ -30,7 +30,7 @@ namespace my_api.Validation.ActionFilters
 
             if (validationResults.Count > 0)
             {
-                MyValidationResponseEnvelope envelope = new MyValidationResponseEnvelope();
+                ValidationResponseEnvelope envelope = new ValidationResponseEnvelope();
                 envelope.Message = "Bad Request: There were validation errors";
 
                 var memberNames = validationResults.SelectMany(v => v.MemberNames);
@@ -39,7 +39,7 @@ namespace my_api.Validation.ActionFilters
                 {
                     foreach (string memberName in valResult.MemberNames)
                     {
-                        var valModel = new MyValidationResponseModel(valResult.ValidationType, memberName);
+                        var valModel = new ValidationResponseModel(valResult.ValidationType, memberName);
 
                         envelope.Errors.Add(valModel);
                     }

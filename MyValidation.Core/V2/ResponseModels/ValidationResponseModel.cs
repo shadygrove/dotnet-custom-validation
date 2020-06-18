@@ -4,7 +4,7 @@ using System;
 
 namespace MyValidation.Core.V2.ResponseModels
 {
-    public class MyValidationResponseModel /*: ModelValidationResult*/
+    public class ValidationResponseModel /*: ModelValidationResult*/
     {
         public MyValidationTypes Type { get; private set; }
 
@@ -15,7 +15,7 @@ namespace MyValidation.Core.V2.ResponseModels
         public string FieldName { get; private set; }
 
 
-        public MyValidationResponseModel(MyValidationTypes type, string memberName) {
+        public ValidationResponseModel(MyValidationTypes type, string memberName) {
             this.Type = type;
             this.Message = GetValidationMessage(type);
             this.FieldName = memberName;
