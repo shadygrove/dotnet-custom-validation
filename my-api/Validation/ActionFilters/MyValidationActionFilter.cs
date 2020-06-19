@@ -30,24 +30,13 @@ namespace my_api.Validation.ActionFilters
 
             if (validationResults.Count > 0)
             {
-                ValidationResponseEnvelope envelope = new ValidationResponseEnvelope();
-                envelope.Message = "Bad Request: There were validation errors";
-
-                var memberNames = validationResults.SelectMany(v => v.MemberNames);
-
-                foreach (MyValidationResult valResult in validationResults)
-                {
-                    foreach (string memberName in valResult.MemberNames)
-                    {
-                        var valModel = new ValidationResponseModel(valResult.ValidationType, memberName, valResult.ErrorMessage);
-
-                        envelope.Errors.Add(valModel);
-                    }
-                }
+                ValidationResponseEnvelope envelope = ResponseMapper.MapValidationResult(validationResults);
 
                 // This basically short-circuits the pipeline and prevents the default model validation response
                 context.Result = new BadRequestObjectResult(envelope);
             }
         }
+
+        
     }
 }

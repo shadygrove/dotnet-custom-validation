@@ -14,7 +14,9 @@ namespace MyValidation.Core.V2.ResponseModels
 
         public HttpStatusCode Code { get; private set; }
 
-        public List<ValidationResponseModel> Errors { get; set; } = new List<ValidationResponseModel>();
+        //public List<ValidationResponseModel> Errors { get; set; } = new List<ValidationResponseModel>();
+
+        public Dictionary<string, IEnumerable<ValidationResponseModel>> Errors { get; set; } = new Dictionary<string, IEnumerable<ValidationResponseModel>>();
 
         public ValidationResponseEnvelope()
         {
