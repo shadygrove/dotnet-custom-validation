@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyValidation.Core", "MyVali
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fluent", "fluent", "{7F081BA4-B3C1-4AD8-98B0-402D19DE5FB8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnetcore", "dotnetcore", "{A38A69B8-12F3-4950-B3E4-789CA4F8308D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnetcore-native-solution", "dotnetcore-native-solution", "{A38A69B8-12F3-4950-B3E4-789CA4F8308D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fluent-and-dotnetcore", "fluent-and-dotnetcore", "{743F4D9C-D4C7-439D-9862-E1928DD89284}"
 EndProject

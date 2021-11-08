@@ -1,0 +1,998 @@
+{
+	"info": {
+		"_postman_id": "0c8d98da-ffb9-4561-87eb-c8189dd42661",
+		"name": "Experiments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": ".NET 3.1",
+			"item": [
+				{
+					"name": "Error Sample: Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:61881/WeatherForecast/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "61881",
+							"path": [
+								"WeatherForecast",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather By City (OK)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:61881/WeatherForecast/redmond",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "61881",
+							"path": [
+								"WeatherForecast",
+								"redmond"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather By City (BadRequest)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:61881/WeatherForecast/unknown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "61881",
+							"path": [
+								"WeatherForecast",
+								"unknown"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Default Error Handler",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:61881/WeatherForecast/unknown",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "61881",
+									"path": [
+										"WeatherForecast",
+										"unknown"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2020 22:10:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "System.ArgumentException: We don't offer a weather forecast for unknown. (Parameter 'city')\r\n   at WebApiSample.Controllers.WeatherForecastController.Get(String city) in C:\\DEV\\INFO\\AspNetCore.Docs-master\\AspNetCore.Docs-master\\aspnetcore\\web-api\\handle-errors\\samples\\3.x\\Controllers\\WeatherForecastController.cs:line 34\r\n   at lambda_method(Closure , Object , Object[] )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\r\n   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)\r\n\r\nHEADERS\r\n=======\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nHost: localhost:61881\r\nUser-Agent: PostmanRuntime/7.22.0\r\nPostman-Token: 88b4e104-1529-4ba2-914f-cec711a3f369\r\n"
+						},
+						{
+							"name": "Custom Error Handler",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:61881/WeatherForecast/unknown",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "61881",
+									"path": [
+										"WeatherForecast",
+										"unknown"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2020 22:20:33 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc7231#section-6.6.1\",\n    \"title\": \"We don't offer a weather forecast for unknown. (Parameter 'city')\",\n    \"status\": 500,\n    \"detail\": \"   at WebApiSample.Controllers.WeatherForecastController.Get(String city) in C:\\\\DEV\\\\INFO\\\\AspNetCore.Docs-master\\\\AspNetCore.Docs-master\\\\aspnetcore\\\\web-api\\\\handle-errors\\\\samples\\\\3.x\\\\Controllers\\\\WeatherForecastController.cs:line 34\\r\\n   at lambda_method(Closure , Object , Object[] )\\r\\n   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\\r\\n--- End of stack trace from previous location where exception was thrown ---\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\\r\\n--- End of stack trace from previous location where exception was thrown ---\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\\r\\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\\r\\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\\r\\n   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)\",\n    \"traceId\": \"|4aae1746-49e82811083059e6.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Weather-OIDC",
+			"item": [
+				{
+					"name": "/WeatherForecast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWMi1GUHZLd3N5SXFXazQ2ZG85X1RtTEZiUkFIczVOaTd2OXJXV0ZYZkI0In0.eyJleHAiOjE2MjAxNTM1NjEsImlhdCI6MTYyMDE1MzI2MSwiYXV0aF90aW1lIjoxNjIwMTQ5ODMyLCJqdGkiOiIzOGFmMjBjYi04M2Y0LTQ1YjYtODkyMi1hYjJmZmY0NTI0MzAiLCJpc3MiOiJodHRwczovL2FjcXVpcmUtZGV2LnRvcGNvbi5hcHA6ODQ0My9hdXRoL3JlYWxtcy9hY3F1aXJlX2RldiIsImF1ZCI6WyJhY3F1aXJlX21haW5fYXBpIiwiYWNjb3VudCJdLCJzdWIiOiJmOjZlZGZlNDU0LTllNjEtNDlkYi05OGJkLTM2OTU0ZGQ4MjMxNDpkb2N0b3IxIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibG9jYWwtYW5ndWxhci1kZW1vLWNsaWVudCIsIm5vbmNlIjoiVDJvMFVVa3VXVGRVY1U5UVpVOXhaMGhzZFY5MFNUTm1RbnBIU0VNdVJWcE1SWEZmY2tKR2VWQlFiVzk1Iiwic2Vzc2lvbl9zdGF0ZSI6IjNmYzMxMjdiLWI3NjYtNGEyYS05YjgxLTE1ODczNmE2MzhhZCIsImFjciI6IjAiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBhY3F1aXJlX21haW5fYXBpX2F1ZCBhY3F1aXJlX2FsbF9hdHRyaWJ1dGVzIiwiYWNxdWlyZV9ncm91cF9uYW1lIjoiRG9jdG9yIiwiYWNxdWlyZV9maXJzdF9sb2dpbiI6IjIwMjAtMDUtMDQgMTU6MTA6NDAuMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYWNxdWlyZV9mb3JlX25hbWUiOiJUb3Bjb24iLCJhY3F1aXJlX2xhc3RfbG9naW4iOiIyMDIwLTA1LTA0IDE1OjEwOjQwLjAiLCJhY3F1aXJlX2hvc3BpdGFsX3VpZCI6IjUyQjE2REQxLTc1RUYtNDc3Ni1COUE2LURGMjIzOTcyQzgzRiIsImFjcXVpcmVfcGVybWlzc2lvbnMiOlsiQWRtaW5pc3RyYXRpb24iLCJQYXRpZW50QWRkIiwiUGF0aWVudEVkaXQiLCJQYXRpZW50RGVsZXRlIiwiUGF0aWVudERpYWdub3NpcyIsIlBhdGllbnREaWFnbm9zaXNMaXN0IiwiRXhhbUFjcXVpc2l0aW9uIiwiRXhhbUFkZERhdGEiLCJFeGFtTW92ZSIsIkV4YW1EZWxldGUiLCJFeGFtQ29tbWVudEVkaXQiLCJFeGFtUHJpbnQiLCJFeGFtRXhwb3J0IiwiQW5naW9ncmFwaHkiLCJLcjF3VmlldyJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkb2N0b3IxIiwiZ2l2ZW5fbmFtZSI6IlRvcGNvbiIsImFjcXVpcmVfc3lzdGVtX3VzZXIiOmZhbHNlLCJhY3F1aXJlX3BlcnNvbl91aWQiOiI4MTAyNUFEOS0zODRGLTQ5RTUtQjM0Qi02ODJEN0IzQUJCQ0QiLCJhY3F1aXJlX2dyb3VwX2VuYWJsZWQiOnRydWUsImFjcXVpcmVfc3VyX25hbWUiOiJPcGh0aGFsbW9sb2d5IiwiYWNxdWlyZV9taWRkbGVfbmFtZSI6IiIsImFjcXVpcmVfZ3JvdXBfdWlkIjoiQkZEMzRFQ0MtODVGRi00QzdBLUNDNEUtRDNCRkZGODU3QTRDIiwiYWNxdWlyZV9lbmFibGVkIjp0cnVlLCJhY3F1aXJlX3VzZXJfdWlkIjoiRUY5MDM4RDktMjA4Mi00NjZBLTk4QzItNzAxREQxNEY1Njg1IiwibmFtZSI6IlRvcGNvbiBPcGh0aGFsbW9sb2d5IiwiZmFtaWx5X25hbWUiOiJPcGh0aGFsbW9sb2d5IiwiZW1haWwiOiIifQ.i9Wtx9Tf4kAbacKbabZoggnh2ZqusAiCoGDN8YAhzKoo2ECrZUgtpBmHTdpFMVZmz4Pgcgd9BvtRz7TRCf7iIm-cu_msKUYm1DoOO5qivBCbeZO4xavC_REEwdzqMrOszgYFfhRnvmb540jT6NP20m6V7ksHwEC_27Kizk15ctOLhWXaBnM5qB7Xo3hPneXbdrU6KJWc5i1MIrZZEO4R17-pmU8yVXHEamxnMp4trnY_WLiXgL5nqfLNWoY17Rmq7tUhk6Di5gRn7KV9pCpp1OEW6y2fVAYuh9Q5ZcO65exk7R6K_VBL4zQFG_vX_K7M1mSyQtDAD-5tYkghjG8UGg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44311/WeatherForecast/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44311",
+							"path": [
+								"WeatherForecast",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather By City (OK)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:61881/WeatherForecast/redmond",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "61881",
+							"path": [
+								"WeatherForecast",
+								"redmond"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather By City (BadRequest)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:61881/WeatherForecast/unknown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "61881",
+							"path": [
+								"WeatherForecast",
+								"unknown"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Custom Error Handler",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:61881/WeatherForecast/unknown",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "61881",
+									"path": [
+										"WeatherForecast",
+										"unknown"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2020 22:20:33 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc7231#section-6.6.1\",\n    \"title\": \"We don't offer a weather forecast for unknown. (Parameter 'city')\",\n    \"status\": 500,\n    \"detail\": \"   at WebApiSample.Controllers.WeatherForecastController.Get(String city) in C:\\\\DEV\\\\INFO\\\\AspNetCore.Docs-master\\\\AspNetCore.Docs-master\\\\aspnetcore\\\\web-api\\\\handle-errors\\\\samples\\\\3.x\\\\Controllers\\\\WeatherForecastController.cs:line 34\\r\\n   at lambda_method(Closure , Object , Object[] )\\r\\n   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\\r\\n--- End of stack trace from previous location where exception was thrown ---\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\\r\\n--- End of stack trace from previous location where exception was thrown ---\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\\r\\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\\r\\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\\r\\n   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)\",\n    \"traceId\": \"|4aae1746-49e82811083059e6.\"\n}"
+						},
+						{
+							"name": "Default Error Handler",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:61881/WeatherForecast/unknown",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "61881",
+									"path": [
+										"WeatherForecast",
+										"unknown"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2020 22:10:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "System.ArgumentException: We don't offer a weather forecast for unknown. (Parameter 'city')\r\n   at WebApiSample.Controllers.WeatherForecastController.Get(String city) in C:\\DEV\\INFO\\AspNetCore.Docs-master\\AspNetCore.Docs-master\\aspnetcore\\web-api\\handle-errors\\samples\\3.x\\Controllers\\WeatherForecastController.cs:line 34\r\n   at lambda_method(Closure , Object , Object[] )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\r\n   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)\r\n\r\nHEADERS\r\n=======\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nHost: localhost:61881\r\nUser-Agent: PostmanRuntime/7.22.0\r\nPostman-Token: 88b4e104-1529-4ba2-914f-cec711a3f369\r\n"
+						}
+					]
+				},
+				{
+					"name": ".well-known",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.2.27.83:8080/auth/realms/acquire_dev/.well-known/openid-configuration",
+							"protocol": "http",
+							"host": [
+								"10",
+								"2",
+								"27",
+								"83"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"realms",
+								"acquire_dev",
+								".well-known",
+								"openid-configuration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": ".NET 2.2",
+			"item": [
+				{
+					"name": "Error Sample: Values",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51861/api/values/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51861",
+							"path": [
+								"api",
+								"values",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Values By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51861/api/values/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51861",
+							"path": [
+								"api",
+								"values",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Values Invalid Model",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51861/api/values/two",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51861",
+							"path": [
+								"api",
+								"values",
+								"two"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51861/api/WeatherForecast/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51861",
+							"path": [
+								"api",
+								"WeatherForecast",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather By City (OK)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51861/api/WeatherForecast/redmond",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51861",
+							"path": [
+								"api",
+								"WeatherForecast",
+								"redmond"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Error Sample: Weather By City (BadRequest)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51861/api/WeatherForecast/unknown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51861",
+							"path": [
+								"api",
+								"WeatherForecast",
+								"unknown"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Custom Error Handler",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:61881/WeatherForecast/unknown",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "61881",
+									"path": [
+										"WeatherForecast",
+										"unknown"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2020 22:20:33 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc7231#section-6.6.1\",\n    \"title\": \"We don't offer a weather forecast for unknown. (Parameter 'city')\",\n    \"status\": 500,\n    \"detail\": \"   at WebApiSample.Controllers.WeatherForecastController.Get(String city) in C:\\\\DEV\\\\INFO\\\\AspNetCore.Docs-master\\\\AspNetCore.Docs-master\\\\aspnetcore\\\\web-api\\\\handle-errors\\\\samples\\\\3.x\\\\Controllers\\\\WeatherForecastController.cs:line 34\\r\\n   at lambda_method(Closure , Object , Object[] )\\r\\n   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\\r\\n--- End of stack trace from previous location where exception was thrown ---\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\\r\\n--- End of stack trace from previous location where exception was thrown ---\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\\r\\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\\r\\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\\r\\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\\r\\n   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)\",\n    \"traceId\": \"|4aae1746-49e82811083059e6.\"\n}"
+						},
+						{
+							"name": "Default Error Handler",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:61881/WeatherForecast/unknown",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "61881",
+									"path": [
+										"WeatherForecast",
+										"unknown"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2020 22:10:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "System.ArgumentException: We don't offer a weather forecast for unknown. (Parameter 'city')\r\n   at WebApiSample.Controllers.WeatherForecastController.Get(String city) in C:\\DEV\\INFO\\AspNetCore.Docs-master\\AspNetCore.Docs-master\\aspnetcore\\web-api\\handle-errors\\samples\\3.x\\Controllers\\WeatherForecastController.cs:line 34\r\n   at lambda_method(Closure , Object , Object[] )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\r\n   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)\r\n\r\nHEADERS\r\n=======\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nHost: localhost:61881\r\nUser-Agent: PostmanRuntime/7.22.0\r\nPostman-Token: 88b4e104-1529-4ba2-914f-cec711a3f369\r\n"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Martin-Validation",
+			"item": [
+				{
+					"name": "GET Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 80,\n\t\"Summary\": \"Warm and cloudy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (my-api)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 130,\n\t\"Summary\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (my-fluent-api)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 130,\n\t\"Summary\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (my-fluent-provider)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 130,\n\t\"Summary\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (my-hybrid-provider) Annotations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 130,\n\t\"Summary\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (my-hybrid-provider) IValidatableObject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 119,\n\t\"Summary\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (null body)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (Invalid Model Binding)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 130,\n\t\"Summary\": 123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather (SummaryTwo Match)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Date\": \"2020-05-12T18:25:43.511Z\",\n\t\"TemperatureC\": 100,\n\t\"Summary\": \"Hello\",\n\t\"SummaryTwo\": \"Not Hello\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Devs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Devs",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Devs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Devs Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Martin\",\r\n    \"FavoritePerson\": \"Bill\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/Devs",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Devs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

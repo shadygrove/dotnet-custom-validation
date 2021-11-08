@@ -2,9 +2,23 @@
 
 This project explores some possible solutions to customizing the response model on 400 BadRequest validations.
 
-The main issue is being able to provide back more detailed information about the validation error.  In particular, an error code. But would like to have abilit to form the response as-needed.
+> Postman collection provided at project directory root for testing APIs
+
+## Solution Projects
+
+This Visual Studio solution presents multiple solutions to handling validation  
+
+**my-fluent-api** is a solution that uses a ALL NATIVE .NET by creating a custom ActionFilter along with implementing the `IValidatableObject` interface.  These are all native to .NET.
+
+**my-fluent-api**: uses Fluent Validator by implementing the `IValidatorInterceptor`
+
+**my-fluent-provider** uses a custom implementation of the `IModelValidatorProvider` which is added to the controller `ModelValidatorProviders` array in `Startup.cs`
+
+**my-hybrid-provider** uses a combination of native valudation annotations AND Fluent Validator classes.  See the `MyHybridValidationProvider` implementation.  This could be useful in a situation where backward-compatibility with annotations is required while moving towards Fluent Validation.
 
 ## What's The Problem?
+The main issue is being able to provide back more detailed information about the validation error.  In particular, an error code. But would like to have abilit to form the response as-needed.
+
 The default model validation is great, but it lacks some useful information like a validation error type code.
 This is what the default AspNetCore Model Validation result looks like...
 ```
@@ -64,9 +78,9 @@ We settled on a validation response model that would look something like this...
 ```
 
 ### Other Decisions Made w/ Team
-Use Fluent
-Don't use annotations or IValidatableObject
-Acquire API and Acquire Link should use same validation approach
+Use Fluent  
+Don't use annotations or `IValidatableObject`  
+Use the same validation approach across all your projects
 - consider a shared library or nuget package  
 
 Add a Confluence doc on validation guidelines/practices  
@@ -79,10 +93,13 @@ Location of Validator classes
 - The validator class should be located along side the class that it validates
 
 
-> []  
-> []  
-> []  
-> []  
+```
++++  
++++  
+spacer  
++++  
++++
+```  
 
 ## Notes/Tips/Tricks We Learned
 
